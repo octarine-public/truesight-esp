@@ -1,6 +1,6 @@
 import { Menu, Utils } from "github.com/octarine-public/wrapper/index"
 
-const base = "github.com/octarine-public/visiblebyenemy/scripts_files/translations"
+const base = "github.com/octarine-public/truesight-esp/scripts_files/translations"
 
 const Load = (fileName: string) =>
 	new Map<string, string>(Object.entries(Utils.readJSON(`${base}/${fileName}.json`)))

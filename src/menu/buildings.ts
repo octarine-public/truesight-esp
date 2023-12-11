@@ -30,7 +30,7 @@ export class MenuBuilding {
 		// outposts not supported
 		this.Outpost = this.tree.AddToggle("Outposts", true)
 		this.Outpost.IsHidden = true
-		this.Barrack = this.tree.AddToggle("Barracks", true)
+		this.Barrack = this.tree.AddToggle("Barraks", true)
 		this.Barrack.IsHidden = true
 		this.UnderlordPortal = this.tree.AddToggle("Underlord portal", true)
 		this.UnderlordPortal.IsHidden = true

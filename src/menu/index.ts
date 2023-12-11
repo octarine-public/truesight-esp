@@ -28,7 +28,7 @@ export class MenuManager {
 
 	constructor() {
 		const visualNode = Menu.AddEntry("Visual")
-		const menu = visualNode.AddNode("TrueSight", "menu/icons/eye_true_sight.svg")
+		const menu = visualNode.AddNode("True sight", "menu/icons/eye_true_sight.svg")
 		menu.SortNodes = false
 
 		this.State = menu.AddToggle("State", true)
