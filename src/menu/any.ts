@@ -22,6 +22,7 @@ export class AnyEntityMenu {
 	public readonly SkeletonArmy: Menu.Toggle
 	public readonly IngisFatuus: Menu.Toggle
 	public readonly AncestralSpirit: Menu.Toggle
+	public readonly RoshanBanner: Menu.Toggle
 
 	constructor(node: Menu.Node) {
 		node.SortNodes = false
@@ -49,6 +50,15 @@ export class AnyEntityMenu {
 			undefined,
 			-1,
 			ImageData.GetBearTexture(),
+			0
+		)
+
+		this.RoshanBanner = node.AddToggle(
+			"Roshan banner",
+			true,
+			undefined,
+			-1,
+			ImageData.GetItemTexture("item_roshans_banner"),
 			0
 		)
 
@@ -197,6 +207,7 @@ export class AnyEntityMenu {
 		this.AncestralSpirit.OnValue(() => callback())
 		this.AllAnyUnitsState.OnValue(() => callback())
 		this.HiddenUnitsState.OnValue(() => callback())
+		this.RoshanBanner.OnValue(() => callback())
 	}
 
 	public ResetSettings() {
@@ -218,5 +229,6 @@ export class AnyEntityMenu {
 		this.EyesInTheForest.value = this.EyesInTheForest.defaultValue
 		this.AllAnyUnitsState.value = this.AllAnyUnitsState.defaultValue
 		this.HiddenUnitsState.value = this.HiddenUnitsState.defaultValue
+		this.RoshanBanner.value = this.RoshanBanner.defaultValue
 	}
 }

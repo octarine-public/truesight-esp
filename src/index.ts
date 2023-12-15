@@ -30,6 +30,7 @@ import {
 	npc_dota_techies_minefield_sign,
 	npc_dota_templar_assassin_psionic_trap,
 	npc_dota_treant_eyes,
+	npc_dota_unit_roshans_banner,
 	npc_dota_unit_undying_tombstone,
 	npc_dota_venomancer_plagueward,
 	npc_dota_visage_familiar,
@@ -327,6 +328,9 @@ const bootstrap = new (class CVisibleByEnemy {
 		}
 		if (unit instanceof TechiesMines) {
 			return menu.Mine.value
+		}
+		if (unit instanceof npc_dota_unit_roshans_banner) {
+			return menu.RoshanBanner.value
 		}
 		if (unit instanceof npc_dota_techies_minefield_sign) {
 			return menu.MinefieldSign.value
