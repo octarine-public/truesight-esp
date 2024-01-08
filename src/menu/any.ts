@@ -5,7 +5,6 @@ export class AnyEntityMenu {
 	public readonly Mine: Menu.Toggle
 	public readonly Cloud: Menu.Toggle
 
-	public readonly Thinker: Menu.Toggle
 	public readonly Tormenter: Menu.Toggle
 	public readonly WispSpirit: Menu.Toggle
 	public readonly PlagueWard: Menu.Toggle
@@ -27,14 +26,6 @@ export class AnyEntityMenu {
 	constructor(node: Menu.Node) {
 		node.SortNodes = false
 		this.AllAnyUnitsState = node.AddToggle("State", true)
-
-		this.Thinker = node.AddToggle(
-			"Thinker",
-			false,
-			"NOTE: Displayed on hidden units, for example:\nVoid Spirit (aether remnant)",
-			-1,
-			ImageData.Paths.Icons.icon_svg_other
-		)
 
 		this.HiddenUnitsState = node.AddToggle(
 			"Hidden units",
@@ -213,7 +204,6 @@ export class AnyEntityMenu {
 	public ResetSettings() {
 		this.Mine.value = this.Mine.defaultValue
 		this.Bear.value = this.Bear.defaultValue
-		this.Thinker.value = this.Thinker.defaultValue
 		this.Tormenter.value = this.Tormenter.defaultValue
 		this.WispSpirit.value = this.WispSpirit.defaultValue
 		this.PsionicTrap.value = this.PsionicTrap.defaultValue

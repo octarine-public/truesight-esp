@@ -168,7 +168,11 @@ const bootstrap = new (class CVisibleByEnemy {
 		if (!unit.ClassName.length || unit instanceof Fountain) {
 			return
 		}
-		if (unit instanceof Announcer || unit instanceof npc_dota_base_blocker) {
+		if (
+			unit instanceof Thinker ||
+			unit instanceof Announcer ||
+			unit instanceof npc_dota_base_blocker
+		) {
 			return
 		}
 
@@ -313,9 +317,6 @@ const bootstrap = new (class CVisibleByEnemy {
 		}
 		if (unit.IsHero || unit.IsCreep || unit.IsBuilding) {
 			return false
-		}
-		if (unit instanceof Thinker) {
-			return menu.Thinker.value
 		}
 		if (unit.IsSpiritBear) {
 			return menu.Bear.value
