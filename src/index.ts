@@ -213,7 +213,7 @@ const bootstrap = new (class CVisibleByEnemy {
 		if (unit.IsCreep && !menu.State.value) {
 			return false
 		}
-		if (!(unit instanceof Creep)) {
+		if (!(unit instanceof Creep) || !unit.IsSpawned) {
 			return false
 		}
 		if (menu.AllState.value) {
