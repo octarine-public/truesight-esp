@@ -93,7 +93,7 @@ export class MenuCreep {
 	private readonly tree: Menu.Node
 
 	constructor(node: Menu.Node) {
-		this.tree = node.AddNode("Creeps", ImageData.Paths.Icons.icon_svg_creep, "", 0)
+		this.tree = node.AddNode("Creeps", ImageData.Paths.Icons.icon_svg_creep, "")
 		this.tree.SortNodes = false
 		this.State = this.tree.AddToggle("State", true)
 		this.AllState = this.tree.AddToggle("All creeps", false)
