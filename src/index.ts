@@ -377,6 +377,9 @@ const bootstrap = new (class CVisibleByEnemy {
 		if (unit.IsHero || unit.IsSpiritBear) {
 			offset = 2
 		}
+		if (unit instanceof WardTrueSight && !unit.IsEnemy()) {
+			offset = 1
+		}
 		const distCam = Camera.Distance
 		switch (true) {
 			case distCam >= 2000 && distCam <= 2800:
