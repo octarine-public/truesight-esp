@@ -143,7 +143,7 @@ const bootstrap = new (class CVisibleByEnemy {
 		) {
 			return false
 		}
-		if (unit.IsEnemy() && unit.Team !== Team.Neutral) {
+		if ((unit.IsEnemy() && unit.Team !== Team.Neutral) || unit.IsHiddenIllusion) {
 			return false
 		}
 		if (unit.IsHero) {
@@ -165,7 +165,8 @@ const bootstrap = new (class CVisibleByEnemy {
 	}
 
 	protected UpdateUnits(unit: Unit) {
-		if (!unit.ClassName.length || unit instanceof Fountain) {
+		if (!unit.ClassName.length || unit instanceof Fountain || unit.IsHiddenIllusion) {
+			this.units.remove(unit)
 			return
 		}
 		if (
