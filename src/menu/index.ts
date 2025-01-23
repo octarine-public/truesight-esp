@@ -1,10 +1,4 @@
-import {
-	ImageData,
-	Menu,
-	NotificationsSDK,
-	ResetSettingsUpdated,
-	Sleeper
-} from "github.com/octarine-public/wrapper/index"
+import { ImageData, Menu } from "github.com/octarine-public/wrapper/index"
 
 import { AnyEntityMenu } from "./any"
 import { MenuBuilding } from "./buildings"
@@ -23,9 +17,6 @@ export class MenuManager {
 	public readonly Courier: Menu.Toggle
 	public readonly Roshan: Menu.Toggle
 
-	private readonly reset: Menu.Button
-	private readonly sleeper = new Sleeper()
-
 	constructor() {
 		const visualNode = Menu.AddEntry("Visual")
 		const menu = visualNode.AddNode("True sight", "menu/icons/eye_true_sight.svg")
@@ -37,14 +28,14 @@ export class MenuManager {
 			true,
 			undefined,
 			-1,
-			ImageData.Paths.Icons.icon_ward
+			ImageData.Icons.icon_ward
 		)
 		this.Roshan = menu.AddToggle(
 			"Roshan",
 			true,
 			undefined,
 			-1,
-			ImageData.Paths.Icons.icon_roshan
+			ImageData.Icons.icon_roshan
 		)
 
 		this.Courier = menu.AddToggle(
@@ -52,7 +43,7 @@ export class MenuManager {
 			true,
 			undefined,
 			-1,
-			ImageData.Paths.Icons.icon_svg_courier
+			ImageData.Icons.icon_svg_courier
 		)
 
 		this.Hero = new MenuHero(menu)
@@ -60,10 +51,8 @@ export class MenuManager {
 		this.Building = new MenuBuilding(menu)
 
 		this.Any = new AnyEntityMenu(
-			menu.AddNode("Any units", ImageData.Paths.Icons.icon_svg_other)
+			menu.AddNode("Any units", ImageData.Icons.icon_svg_other)
 		)
-
-		this.reset = menu.AddButton("Reset", "Reset settings")
 	}
 
 	public OnChanged(callback: () => void) {
@@ -75,35 +64,5 @@ export class MenuManager {
 		this.Courier.OnValue(() => callback())
 		this.Creep.OnChanged(() => callback())
 		this.Building.OnChanged(() => callback())
-
-		this.reset.OnValue(() => {
-			if (this.sleeper.Sleeping("ResetSettings")) {
-				return
-			}
-			this.ResetSettings()
-			this.sleeper.Sleep(1000, "ResetSettings")
-			NotificationsSDK.Push(new ResetSettingsUpdated())
-			callback()
-		})
-	}
-
-	public GameChanged() {
-		this.sleeper.FullReset()
-	}
-
-	public ResetSettings() {
-		this.Ward.value = this.Ward.defaultValue
-		this.State.value = this.State.defaultValue
-		this.Roshan.value = this.Roshan.defaultValue
-		this.Courier.value = this.Courier.defaultValue
-		this.Any.ResetSettings()
-		this.ResetSettingsUnits()
-	}
-
-	protected ResetSettingsUnits() {
-		this.Any.ResetSettings()
-		this.Hero.ResetSettings()
-		this.Creep.ResetSettings()
-		this.Building.ResetSettings()
 	}
 }

@@ -14,7 +14,7 @@ export class MenuBuilding {
 	private readonly tree: Menu.Node
 
 	constructor(node: Menu.Node) {
-		this.tree = node.AddNode("Buildings", ImageData.Paths.Icons.icon_svg_tower)
+		this.tree = node.AddNode("Buildings", ImageData.Icons.icon_svg_tower)
 		this.tree.SortNodes = false
 		this.State = this.tree.AddToggle("State", true)
 		this.AllState = this.tree.AddToggle("All buildings", true)
@@ -50,17 +50,6 @@ export class MenuBuilding {
 			callback()
 			this.HideUnhide(call.value)
 		})
-	}
-
-	public ResetSettings() {
-		this.Fort.value = this.Fort.defaultValue
-		this.Tower.value = this.Tower.defaultValue
-		this.Filler.value = this.Filler.defaultValue
-		this.Watcher.value = this.Watcher.defaultValue
-		this.State.value = this.State.defaultValue
-		this.AllState.value = this.AllState.defaultValue
-		this.UnderlordPortal.value = this.UnderlordPortal.defaultValue
-		this.HideUnhide()
 	}
 
 	protected HideUnhide(state = this.AllState.value) {

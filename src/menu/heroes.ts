@@ -21,11 +21,4 @@ export class MenuHero {
 		this.OnlySelf.OnValue(() => callback())
 		this.Illusion.OnValue(() => callback())
 	}
-
-	public ResetSettings() {
-		this.State.value = this.State.defaultValue
-		this.Clone.value = this.Clone.defaultValue
-		this.Clone.value = this.Clone.defaultValue
-		this.OnlySelf.value = this.OnlySelf.defaultValue
-	}
 }

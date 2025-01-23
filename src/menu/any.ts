@@ -32,7 +32,7 @@ export class AnyEntityMenu {
 			false,
 			"NOTE: Displayed on hidden units, for example:\nMirana, Windranger, Hoodwink arrows, but some units may interfere",
 			-1,
-			ImageData.Paths.Icons.icon_svg_other
+			ImageData.Icons.icon_svg_other
 		)
 
 		this.Bear = node.AddToggle(

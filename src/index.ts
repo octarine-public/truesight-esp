@@ -52,7 +52,7 @@ import {
 
 import { MenuManager } from "./menu/index"
 
-const bootstrap = new (class CVisibleByEnemy {
+const bootstrap = new (class CTruesightESP {
 	private lastCameraDist = 0
 	private readonly units: Unit[] = []
 
@@ -129,7 +129,6 @@ const bootstrap = new (class CVisibleByEnemy {
 	}
 
 	public GameChanged() {
-		this.menu.GameChanged()
 		this.lastCameraDist = 0
 		this.offsetCameraCache.clear()
 	}
@@ -143,7 +142,7 @@ const bootstrap = new (class CVisibleByEnemy {
 		) {
 			return false
 		}
-		if ((unit.IsEnemy() && unit.Team !== Team.Neutral) || unit.IsHiddenIllusion) {
+		if (unit.IsEnemy() && unit.Team !== Team.Neutral) {
 			return false
 		}
 		if (unit.IsHero) {
@@ -165,7 +164,7 @@ const bootstrap = new (class CVisibleByEnemy {
 	}
 
 	protected UpdateUnits(unit: Unit) {
-		if (!unit.ClassName.length || unit instanceof Fountain || unit.IsHiddenIllusion) {
+		if (!unit.ClassName.length || unit instanceof Fountain) {
 			this.units.remove(unit)
 			return
 		}
