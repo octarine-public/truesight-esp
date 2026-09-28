@@ -7,7 +7,6 @@ export class MenuBuilding {
 	public readonly Fort: Menu.Toggle
 	public readonly Filler: Menu.Toggle
 	public readonly Watcher: Menu.Toggle
-	public readonly Outpost: Menu.Toggle
 	public readonly AllState: Menu.Toggle
 	public readonly UnderlordPortal: Menu.Toggle
 
@@ -33,10 +32,6 @@ export class MenuBuilding {
 		this.Watcher = this.tree.AddToggle("Watchers", true)
 		this.Watcher.IconPath = TrueSightIcons.Watcher
 		this.Watcher.IsHidden = true
-		// outposts not supported
-		this.Outpost = this.tree.AddToggle("Outposts", true)
-		this.Outpost.IconPath = TrueSightIcons.Outpost
-		this.Outpost.IsHidden = true
 		this.Barrack = this.tree.AddToggle("Barraks", true)
 		this.Barrack.IconPath = TrueSightIcons.Barrack
 		this.Barrack.IsHidden = true
@@ -52,8 +47,6 @@ export class MenuBuilding {
 		this.Filler.OnValue(() => callback())
 		this.Watcher.OnValue(() => callback())
 		this.UnderlordPortal.OnValue(() => callback())
-		// not supported
-		// this.Outpost.OnValue(() => callback())
 		this.Barrack.OnValue(() => callback())
 		this.AllState.OnValue(call => {
 			callback()
@@ -67,8 +60,6 @@ export class MenuBuilding {
 		this.Filler.IsHidden = state
 		this.Watcher.IsHidden = state
 		this.UnderlordPortal.IsHidden = state
-		// not supported
-		// this.Outpost.IsHidden = state
 		this.Barrack.IsHidden = state
 		this.tree.Update()
 	}

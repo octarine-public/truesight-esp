@@ -36,7 +36,6 @@ export const TrueSightIcons = {
 	Tower: icon("tower"),
 	Filler: icon("filler"),
 	Watcher: icon("watcher"),
-	Outpost: icon("outpost"),
 	Barrack: icon("barracks"),
 	UnderlordPortal: icon("portal"),
 

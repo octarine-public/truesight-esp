@@ -227,8 +227,7 @@ const bootstrap = new (class CTruesightESP {
 		if (!menu.State.value && unit.IsBuilding) {
 			return false
 		}
-		// outpost not supported
-		if (unit.IsShop || unit.IsOutpost /* && menu.Outpost.value */) {
+		if (unit.IsShop || unit.IsOutpost) {
 			return false
 		}
 		if (!(unit instanceof Building)) {
