@@ -1,4 +1,4 @@
-import { ImageData, Menu } from "github.com/octarine-public/wrapper/index"
+import { TrueSightIcons } from "../icons"
 
 export class MenuBuilding {
 	public readonly State: Menu.Toggle
@@ -14,25 +14,34 @@ export class MenuBuilding {
 	private readonly tree: Menu.Node
 
 	constructor(node: Menu.Node) {
-		this.tree = node.AddNode("Buildings", ImageData.Icons.icon_svg_tower)
+		this.tree = node.AddNode("Buildings", TrueSightIcons.Buildings)
 		this.tree.SortNodes = false
 		this.State = this.tree.AddToggle("State", true)
+		this.tree.HeaderControl = this.State
 		this.AllState = this.tree.AddToggle("All buildings", true)
+		this.AllState.IconPath = TrueSightIcons.All
 
 		this.Fort = this.tree.AddToggle("Fort", true)
+		this.Fort.IconPath = TrueSightIcons.Fort
 		this.Fort.IsHidden = true
 		this.Tower = this.tree.AddToggle("Towers", true)
+		this.Tower.IconPath = TrueSightIcons.Tower
 		this.Tower.IsHidden = true
 		this.Filler = this.tree.AddToggle("Fillers", true)
+		this.Filler.IconPath = TrueSightIcons.Filler
 		this.Filler.IsHidden = true
 		this.Watcher = this.tree.AddToggle("Watchers", true)
+		this.Watcher.IconPath = TrueSightIcons.Watcher
 		this.Watcher.IsHidden = true
 		// outposts not supported
 		this.Outpost = this.tree.AddToggle("Outposts", true)
+		this.Outpost.IconPath = TrueSightIcons.Outpost
 		this.Outpost.IsHidden = true
 		this.Barrack = this.tree.AddToggle("Barraks", true)
+		this.Barrack.IconPath = TrueSightIcons.Barrack
 		this.Barrack.IsHidden = true
 		this.UnderlordPortal = this.tree.AddToggle("Underlord portal", true)
+		this.UnderlordPortal.IconPath = TrueSightIcons.UnderlordPortal
 		this.UnderlordPortal.IsHidden = true
 	}
 

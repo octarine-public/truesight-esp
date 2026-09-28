@@ -1,55 +1,5 @@
 import "./translations"
 
-import {
-	Announcer,
-	Building,
-	Color,
-	Courier,
-	Creep,
-	Entity,
-	EventsSDK,
-	Fort,
-	Fountain,
-	GameState,
-	MangoTree,
-	Miniboss,
-	npc_dota_base_blocker,
-	npc_dota_beastmaster_boar,
-	npc_dota_beastmaster_hawk,
-	npc_dota_brewmaster_earth,
-	npc_dota_brewmaster_fire,
-	npc_dota_brewmaster_storm,
-	npc_dota_brewmaster_void,
-	npc_dota_broodmother_spiderling,
-	npc_dota_clinkz_skeleton_archer,
-	npc_dota_elder_titan_ancestral_spirit,
-	npc_dota_ignis_fatuus,
-	npc_dota_invoker_forged_spirit,
-	npc_dota_lich_ice_spire,
-	npc_dota_shadowshaman_serpentward,
-	npc_dota_techies_minefield_sign,
-	npc_dota_templar_assassin_psionic_trap,
-	npc_dota_treant_eyes,
-	npc_dota_unit_roshans_banner,
-	npc_dota_unit_undying_tombstone,
-	npc_dota_venomancer_plagueward,
-	npc_dota_visage_familiar,
-	npc_dota_wisp_spirit,
-	npc_dota_zeus_cloud,
-	ParticleAttachment,
-	ParticlesSDK,
-	SpiritBear,
-	Team,
-	TechiesMines,
-	Thinker,
-	TwinGate,
-	UnderlordPortal,
-	Unit,
-	Vector3,
-	WardObserver,
-	WardTrueSight
-} from "github.com/octarine-public/wrapper/index"
-
 import { MenuManager } from "./menu/index"
 
 const bootstrap = new (class CTruesightESP {
@@ -59,7 +9,8 @@ const bootstrap = new (class CTruesightESP {
 	private readonly menu = new MenuManager()
 	private readonly pSDK = new ParticlesSDK()
 	private readonly offsetCameraCache = new Set<Unit>()
-	private readonly particlePathName = "particles/vbe/ward_true_sight_true_sight.vpcf_c"
+	private readonly particlePathName =
+		"particles/octarine/dota2-sdk/vbe/ward_true_sight_true_sight.vpcf"
 
 	constructor() {
 		this.menu.OnChanged(() => this.OnChangedMenu())

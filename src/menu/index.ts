@@ -1,5 +1,4 @@
-import { ImageData, Menu } from "github.com/octarine-public/wrapper/index"
-
+import { TrueSightIcons } from "../icons"
 import { AnyEntityMenu } from "./any"
 import { MenuBuilding } from "./buildings"
 import { MenuCreep } from "./creeps"
@@ -19,40 +18,29 @@ export class MenuManager {
 
 	constructor() {
 		const visualNode = Menu.AddEntry("Visual")
-		const menu = visualNode.AddNode("True sight", "menu/icons/eye_true_sight.svg")
+		const menu = visualNode.AddNode(
+			"True sight",
+			TrueSightIcons.TrueSight,
+			"Marks your units the enemy sees\nthrough invisibility: sentries, gem, towers"
+		)
 		menu.SortNodes = false
 
 		this.State = menu.AddToggle("State", true)
-		this.Ward = menu.AddToggle(
-			"Wards",
-			true,
-			undefined,
-			-1,
-			ImageData.Icons.icon_ward
-		)
-		this.Roshan = menu.AddToggle(
-			"Roshan",
-			true,
-			undefined,
-			-1,
-			ImageData.Icons.icon_roshan
-		)
+		this.State.IconPath = TrueSightIcons.State
+		menu.HeaderControl = this.State
+		menu.Gate = this.State
 
-		this.Courier = menu.AddToggle(
-			"Couriers",
-			true,
-			undefined,
-			-1,
-			ImageData.Icons.icon_svg_courier
-		)
+		this.Ward = menu.AddToggle("Wards", true)
+		this.Ward.IconPath = TrueSightIcons.Ward
+		this.Roshan = menu.AddToggle("Roshan", true)
+		this.Roshan.IconPath = TrueSightIcons.Roshan
+		this.Courier = menu.AddToggle("Couriers", true)
+		this.Courier.IconPath = TrueSightIcons.Courier
 
 		this.Hero = new MenuHero(menu)
 		this.Creep = new MenuCreep(menu)
 		this.Building = new MenuBuilding(menu)
-
-		this.Any = new AnyEntityMenu(
-			menu.AddNode("Any units", ImageData.Icons.icon_svg_other)
-		)
+		this.Any = new AnyEntityMenu(menu.AddNode("Any units", TrueSightIcons.Units))
 	}
 
 	public OnChanged(callback: () => void) {

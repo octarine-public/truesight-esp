@@ -1,4 +1,4 @@
-import { ImageData, Menu } from "github.com/octarine-public/wrapper/index"
+import { TrueSightIcons } from "../icons"
 
 class CreepTypes {
 	public readonly Hawk: Menu.Toggle
@@ -14,33 +14,43 @@ class CreepTypes {
 
 	constructor(menu: Menu.Node) {
 		this.Lane = menu.AddToggle("Lines", false)
+		this.Lane.IconPath = TrueSightIcons.Lane
 		this.Lane.IsHidden = true
 
 		this.Neutral = menu.AddToggle("Neutrals", true)
+		this.Neutral.IconPath = TrueSightIcons.Neutral
 		this.Neutral.IsHidden = true
 
 		this.Boar = menu.AddToggle("Boars", true)
+		this.Boar.IconPath = TrueSightIcons.Boar
 		this.Boar.IsHidden = true
 
 		this.Hawk = menu.AddToggle("Hawks", true)
+		this.Hawk.IconPath = TrueSightIcons.Hawk
 		this.Hawk.IsHidden = true
 
 		this.Panda = menu.AddToggle("Pandas", true)
+		this.Panda.IconPath = TrueSightIcons.Panda
 		this.Panda.IsHidden = true
 
 		this.Eidolon = menu.AddToggle("Eidolons", true)
+		this.Eidolon.IconPath = TrueSightIcons.Eidolon
 		this.Eidolon.IsHidden = true
 
 		this.Spider = menu.AddToggle("Spiders", false)
+		this.Spider.IconPath = TrueSightIcons.Spider
 		this.Spider.IsHidden = true
 
 		this.Zombies = menu.AddToggle("Zombies", false)
+		this.Zombies.IconPath = TrueSightIcons.Zombie
 		this.Zombies.IsHidden = true
 
 		this.Familiar = menu.AddToggle("Familiars", true)
+		this.Familiar.IconPath = TrueSightIcons.Familiar
 		this.Familiar.IsHidden = true
 
 		this.ForgedSpirit = menu.AddToggle("Forged spirit", true)
+		this.ForgedSpirit.IconPath = TrueSightIcons.ForgedSpirit
 		this.ForgedSpirit.IsHidden = true
 	}
 
@@ -93,10 +103,12 @@ export class MenuCreep {
 	private readonly tree: Menu.Node
 
 	constructor(node: Menu.Node) {
-		this.tree = node.AddNode("Creeps", ImageData.Icons.icon_svg_creep, "")
+		this.tree = node.AddNode("Creeps", TrueSightIcons.Creeps)
 		this.tree.SortNodes = false
 		this.State = this.tree.AddToggle("State", true)
+		this.tree.HeaderControl = this.State
 		this.AllState = this.tree.AddToggle("All creeps", false)
+		this.AllState.IconPath = TrueSightIcons.All
 		this.Types = new CreepTypes(this.tree)
 	}
 

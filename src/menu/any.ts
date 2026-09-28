@@ -1,4 +1,4 @@
-import { ImageData, Menu } from "github.com/octarine-public/wrapper/index"
+import { TrueSightIcons } from "../icons"
 
 export class AnyEntityMenu {
 	public readonly Bear: Menu.Toggle
@@ -26,49 +26,34 @@ export class AnyEntityMenu {
 	constructor(node: Menu.Node) {
 		node.SortNodes = false
 		this.AllAnyUnitsState = node.AddToggle("State", true)
+		node.HeaderControl = this.AllAnyUnitsState
 
 		this.HiddenUnitsState = node.AddToggle(
 			"Hidden units",
 			false,
 			"NOTE: Displayed on hidden units, for example:\nMirana, Windranger, Hoodwink arrows, but some units may interfere",
 			-1,
-			ImageData.Icons.icon_svg_other
+			TrueSightIcons.Hidden
 		)
 
-		this.Bear = node.AddToggle(
-			"Bear",
-			true,
-			undefined,
-			-1,
-			ImageData.GetBearTexture(),
-			0
-		)
+		this.Bear = node.AddToggle("Bear", true, undefined, -1, TrueSightIcons.Bear)
 
 		this.RoshanBanner = node.AddToggle(
 			"Roshan banner",
 			true,
 			undefined,
 			-1,
-			ImageData.GetItemTexture("item_roshans_banner"),
-			0
+			TrueSightIcons.RoshanBanner
 		)
 
-		this.Cloud = node.AddToggle(
-			"Nimbus",
-			true,
-			undefined,
-			-1,
-			ImageData.GetSpellTexture("zuus_cloud"),
-			0
-		)
+		this.Cloud = node.AddToggle("Nimbus", true, undefined, -1, TrueSightIcons.Nimbus)
 
 		this.Tormenter = node.AddToggle(
 			"Tormenter",
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("miniboss_reflect"),
-			0
+			TrueSightIcons.Tormentor
 		)
 
 		this.SerpentWard = node.AddToggle(
@@ -76,8 +61,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("shadow_shaman_mass_serpent_ward"),
-			0
+			TrueSightIcons.SerpentWard
 		)
 
 		this.WispSpirit = node.AddToggle(
@@ -85,26 +69,17 @@ export class AnyEntityMenu {
 			false,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("wisp_spirits"),
-			0
+			TrueSightIcons.WispSpirit
 		)
 
-		this.Mine = node.AddToggle(
-			"Mines",
-			true,
-			undefined,
-			-1,
-			ImageData.GetSpellTexture("techies_land_mines"),
-			0
-		)
+		this.Mine = node.AddToggle("Mines", true, undefined, -1, TrueSightIcons.Mine)
 
 		this.PsionicTrap = node.AddToggle(
 			"Psionic traps",
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("templar_assassin_psionic_trap"),
-			0
+			TrueSightIcons.PsionicTrap
 		)
 
 		this.MinefieldSign = node.AddToggle(
@@ -112,8 +87,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("techies_minefield_sign"),
-			0
+			TrueSightIcons.MinefieldSign
 		)
 
 		this.EyesInTheForest = node.AddToggle(
@@ -121,8 +95,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("treant_eyes_in_the_forest"),
-			0
+			TrueSightIcons.EyesInTheForest
 		)
 
 		this.PlagueWard = node.AddToggle(
@@ -130,8 +103,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("venomancer_plague_ward"),
-			0
+			TrueSightIcons.PlagueWard
 		)
 
 		this.IceSpire = node.AddToggle(
@@ -139,8 +111,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("lich_ice_spire"),
-			0
+			TrueSightIcons.IceSpire
 		)
 
 		this.Tombstone = node.AddToggle(
@@ -148,8 +119,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("undying_tombstone"),
-			0
+			TrueSightIcons.Tombstone
 		)
 
 		this.SkeletonArmy = node.AddToggle(
@@ -157,8 +127,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetUnitTexture("npc_dota_hero_clinkz", true),
-			0
+			TrueSightIcons.SkeletonArmy
 		)
 
 		this.IngisFatuus = node.AddToggle(
@@ -166,8 +135,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("keeper_of_the_light_will_o_wisp"),
-			0
+			TrueSightIcons.WillOWisp
 		)
 
 		this.AncestralSpirit = node.AddToggle(
@@ -175,8 +143,7 @@ export class AnyEntityMenu {
 			true,
 			undefined,
 			-1,
-			ImageData.GetSpellTexture("elder_titan_return_spirit"),
-			0
+			TrueSightIcons.AncestralSpirit
 		)
 	}
 
