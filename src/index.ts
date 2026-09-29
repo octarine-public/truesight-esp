@@ -1,6 +1,7 @@
 import "./translations"
 
 import { MenuManager } from "./menu/index"
+import { Paths } from "./paths"
 
 const bootstrap = new (class CTruesightESP {
 	private lastCameraDist = 0
@@ -9,8 +10,6 @@ const bootstrap = new (class CTruesightESP {
 	private readonly menu = new MenuManager()
 	private readonly pSDK = new ParticlesSDK()
 	private readonly offsetCameraCache = new Set<Unit>()
-	private readonly particlePathName =
-		"particles/octarine/dota2-sdk/vbe/ward_true_sight_true_sight.vpcf"
 
 	constructor() {
 		this.menu.OnChanged(() => this.OnChangedMenu())
@@ -139,7 +138,7 @@ const bootstrap = new (class CTruesightESP {
 		}
 		this.pSDK.AddOrUpdate(
 			key,
-			this.particlePathName,
+			Paths.TrueSight,
 			ParticleAttachment.PATTACH_ABSORIGIN_FOLLOW,
 			unit,
 			[1, Color.White],
