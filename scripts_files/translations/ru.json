@@ -32,5 +32,7 @@
 	"How long should\nthe effect last (sec)": "Как долго должен\nдлиться эффект (сек)",
 	"NOTE: disables on all units\nbut enables only on those where it is specifically enabled": "ПРИМЕЧАНИЕ: отключает на всех юнитах\nно включает только на тех где он точечно включён",
 	"NOTE: Displayed on hidden units, for example:\nMirana, Windranger, Hoodwink arrows, but some units may interfere": "ПРИМЕЧАНИЕ: Отображается на скрытых юнитах, например:\nстрелы Mirana, Windranger, Hoodwink, но некоторые юниты могут мешать",
-	"Marks your units the enemy sees\nthrough invisibility: sentries, gem, towers": "Отмечает ваших юнитов, которых враг видит\nсквозь невидимость: сентри, гем, башни"
+	"Marks your units the enemy sees\nthrough invisibility: sentries, gem, towers": "Отмечает ваших юнитов, которых враг видит\nсквозь невидимость: сентри, гем, башни",
+	"Roshan banner": "Знамя Рошана",
+	"Plague ward": "Чумной тотем"
 }
