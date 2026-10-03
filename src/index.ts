@@ -178,6 +178,9 @@ const bootstrap = new (class CTruesightESP {
 		if (unit.IsNeutral) {
 			return menu.Types.Neutral.value
 		}
+		if (this.IsUndyingZombie(unit)) {
+			return menu.Types.Zombies.value
+		}
 		if (unit instanceof npc_dota_visage_familiar) {
 			return menu.Types.Familiar.value
 		}
@@ -319,6 +322,11 @@ const bootstrap = new (class CTruesightESP {
 			return menu.AncestralSpirit.value
 		}
 		return menu.HiddenUnitsState.value
+	}
+
+	// npc_dota_unit_undying_zombie and npc_dota_unit_undying_zombie_torso
+	protected IsUndyingZombie(unit: Unit) {
+		return unit.Name.startsWith("npc_dota_unit_undying_zombie")
 	}
 
 	protected GetHeightOffset(unit: Unit) {
